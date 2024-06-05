@@ -139,7 +139,7 @@
 ////    return 0;
 ////}
 
-
+//
 ////对自定义类型初始化
 //#include <iostream>
 //using namespace std;
@@ -173,57 +173,79 @@
 //
 //int main()
 //{
-//	Date d2 = { 2.15,2.5,50. };
+//	Date d2 (2.15, 2.5, 50.);
 //	return 0;
 //};
 
+//
+//#include <iostream>
+//#include <string>
+//
+//class Person {
+//public:
+//    std::string name;
+//    int age;
+//    int height;
+//
+//    // 单参数构造函数
+//    Person(std::string n) : name(n), age(0) {
+//        std::cout << "Person(std::string n)" << std::endl;
+//    }
+//
+//    Person(int a) : name("Unknown"), age(a) {
+//        std::cout << "Person(int a)" << std::endl;
+//    }
+//
+//    Person(std::string n, int a) : name(n), age(a) {
+//        std::cout << "Person(std::string n, int a)" << std::endl;
+//    }
+//
+//    Person(double n, double a) : height(n), age(a) {
+//        std::cout << "Person(double n, double a)" << std::endl;
+//    }
+//
+//    Person(const char* s) : name(s) {
+//        std::cout << "Person(const char * s)" << std::endl;
+//    }
+//};  
+//
+//int main() 
+//{
+//    Person a = { "Alice", 30}; // 直接调用 Person(std::string, int) 构造函数
+//    Person b = { "fwqfq" };    // 直接调用 Person(const char * s) 构造函数
+//    Person c = { 5 , 6 };      //（多参数）隐式类型转换： int -> double，然后调用 Person(double n, double a) 构造临时对象，最后将该对象拷贝给c
+//   
+//    Person d = (52.5);         //（单参数）隐式类型转换：double -> int，然后调用  Person(int a) 构造临时对象，最后将该对象拷贝给d
+//    
+//    Person e = "fewfew";       // 调用 Person(const char* s)构造临时对象，最后将该对象拷贝给e
+//
+//    Person f = 40;             // 调用 Person(int a) 构造临时对象，最后将该对象拷贝给f
+//    return 0;
+//}
 
 #include <iostream>
-#include <string>
+#include <vector>
 
-class Person {
+
+class MyClass {
 public:
-    std::string name;
-    int age;
-    int height;
-
-    // 单参数构造函数
-    Person(std::string n) : name(n), age(0) {
-        std::cout << "Person(std::string n)" << std::endl;
+    MyClass(int a,int b,int c,int d,int e)
+    {
+        std::cout << "MyClass(int a,int b,int c,int d,int e)" << std::endl;
     }
 
-    Person(int a) : name("Unknown"), age(a) {
-        std::cout << "Person(int a)" << std::endl;
+    MyClass(std::initializer_list<int> list) 
+    {
+        for (auto elem : list) {
+            std::cout << elem << " ";
+        }
+        std::cout << std::endl;
     }
-
-    Person(std::string n, int a) : name(n), age(a) {
-        std::cout << "Person(std::string n, int a)" << std::endl;
-    }
-
-    Person(double n, double a) : height(n), age(a) {
-        std::cout << "Person(double n, double a)" << std::endl;
-    }
-
-    Person(const char * s) : name(s) {
-        std::cout << "Person(const char * s)" << std::endl;
-    }
+  
 };
 
 int main() 
 {
-    Person p{ "Alice", 30}; // 直接调用 Person(std::string, int) 构造函数，因为{}找到了一个合适的构造函数
-    Person s = 40;          // 直接调用 Person(int a) 构造函数，因为有一个支持int的构造函数
-
-    Person q{ 5 , 6 };      // （多参数）隐式类型转换：int -> double，然后调用 Person(double n, double a) 构造函数
-    Person r = {"fwqfq"};   // （单参数）隐式类型转换：const char* -> std::string，然后调用 Person(std::string n) 构造函数
-    
-    Person a = "fewfew";    //隐
-
-    
-
-    
- 
-
-
+    MyClass obj = { 1, 2, 3, 4, 5 }; 
     return 0;
 }
