@@ -223,29 +223,70 @@
 //    return 0;
 //}
 
+//#include <iostream>
+//#include <vector>
+//
+//
+//class MyClass {
+//public:
+//    MyClass(int a,int b,int c,int d,int e)
+//    {
+//        std::cout << "MyClass(int a,int b,int c,int d,int e)" << std::endl;
+//    }
+//
+//    MyClass(std::initializer_list<int> list) 
+//    {
+//        for (auto elem : list) {
+//            std::cout << elem << " ";
+//        }
+//        std::cout << std::endl;
+//    }
+//  
+//};
+//
+//int main() 
+//{
+//    MyClass obj = { 1, 2, 3, 4, 5 }; 
+//    return 0;
+//}
+
+
+//#include <iostream>
+//using namespace std;
+
+//int func1()
+//{
+//	static int x = 0;
+//	return x;//x是右值
+//}
+//
+//
+//int main()
+//{
+//	//左值引用不能给右值取别名，但是const左值可以
+//	int& r1 = func1();
+//	const int& r2 = func1();
+//
+//	//右值引用不能给左值取别名，但是可以给move后的左值起别名
+//	int x = 1;
+//	int&& rr1 = x;
+//	int&& rr2 = move(x);
+//	move(x);
+//
+//	return 0;
+//}
+
 #include <iostream>
-#include <vector>
 
-
-class MyClass {
-public:
-    MyClass(int a,int b,int c,int d,int e)
-    {
-        std::cout << "MyClass(int a,int b,int c,int d,int e)" << std::endl;
-    }
-
-    MyClass(std::initializer_list<int> list) 
-    {
-        for (auto elem : list) {
-            std::cout << elem << " ";
-        }
-        std::cout << std::endl;
-    }
-  
-};
-
-int main() 
+int& getLocalVar() 
 {
-    MyClass obj = { 1, 2, 3, 4, 5 }; 
+    int localVar = 42;
+    return localVar; // 返回局部变量的引用（错误）
+}
+
+int main() {
+
+    int& ref = getLocalVar();
+    std::cout << ref << std::endl; // 未定义行为
     return 0;
 }
