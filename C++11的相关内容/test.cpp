@@ -1,7 +1,7 @@
-////#include <iostream>
+ï»¿////#include <iostream>
 ////using namespace std;
 ////
-//////Ê¹ÓÃ()¶ÔÓĞÓÃ»§×Ô¶¨Òå¹¹Ôìº¯ÊıµÄ×Ô¶¨ÒåÀàĞÍ½øĞĞ³õÊ¼»¯
+//////ä½¿ç”¨()å¯¹æœ‰ç”¨æˆ·è‡ªå®šä¹‰æ„é€ å‡½æ•°çš„è‡ªå®šä¹‰ç±»å‹è¿›è¡Œåˆå§‹åŒ–
 ////class Date
 ////{
 ////public:
@@ -32,13 +32,13 @@
 ////
 ////int main()
 ////{
-////	//Ê¹ÓÃ()³õÊ¼»¯×Ô¶¨ÒåÀàĞÍ
-////	Date d2(2024);//µ¥²ÎÊı¹¹Ôì,µ÷ÓÃµ¥²ÎÊı¹¹Ôìº¯Êı
-////	Date d3(2024, 5, 26);//¶à²ÎÊı¹¹Ôì,µ÷ÓÃ¶à²ÎÊı¹¹Ôìº¯Êı
+////	//ä½¿ç”¨()åˆå§‹åŒ–è‡ªå®šä¹‰ç±»å‹
+////	Date d2(2024);//å•å‚æ•°æ„é€ ,è°ƒç”¨å•å‚æ•°æ„é€ å‡½æ•°
+////	Date d3(2024, 5, 26);//å¤šå‚æ•°æ„é€ ,è°ƒç”¨å¤šå‚æ•°æ„é€ å‡½æ•°
 ////
-////	//Ê¹ÓÃ()¶ÔÄÚÖÃÀàĞÍ½øĞĞ³õÊ¼»¯
-////	int i(5);//µ¥²ÎÊı¹¹Ôì
-////	double f(3.14);//µ¥²ÎÊı¹¹Ôì
+////	//ä½¿ç”¨()å¯¹å†…ç½®ç±»å‹è¿›è¡Œåˆå§‹åŒ–
+////	int i(5);//å•å‚æ•°æ„é€ 
+////	double f(3.14);//å•å‚æ•°æ„é€ 
 ////	int z = (6);
 ////
 ////	cout << i << endl;
@@ -55,22 +55,22 @@
 ////public:
 ////	Date()
 ////	{
-////		cout << "Date()" << endl;//×îºó´òÓ¡µÄDate()Ó¦¸ÃÖ»ÓĞÒ»ĞĞ
+////		cout << "Date()" << endl;//æœ€åæ‰“å°çš„Date()åº”è¯¥åªæœ‰ä¸€è¡Œ
 ////	}
 ////};
 ////
 ////int main()
 ////{
-////	Date d();//º¯ÊıÉùÃ÷£¬²»ÊÇ³õÊ¼»¯¶ÔÏó
+////	Date d();//å‡½æ•°å£°æ˜ï¼Œä¸æ˜¯åˆå§‹åŒ–å¯¹è±¡
 ////	cout << endl;
-////	cout << "ÉÏÃæÓĞDate()Âğ£¿" << endl;
-////	Date d1;//³õÊ¼»¯¶ÔÏó£¬µ÷ÓÃÎŞ²Î¹¹Ôìº¯Êı
-////	cout << "ÉÏÃæÓĞDate()Âğ£¿" << endl;
+////	cout << "ä¸Šé¢æœ‰Date()å—ï¼Ÿ" << endl;
+////	Date d1;//åˆå§‹åŒ–å¯¹è±¡ï¼Œè°ƒç”¨æ— å‚æ„é€ å‡½æ•°
+////	cout << "ä¸Šé¢æœ‰Date()å—ï¼Ÿ" << endl;
 ////	return 0;
 ////}
 //
 //
-////¶Ô×Ô¶¨ÒåÀàĞÍ³õÊ¼»¯
+////å¯¹è‡ªå®šä¹‰ç±»å‹åˆå§‹åŒ–
 //#include <iostream>
 //using namespace std;
 //
@@ -111,11 +111,11 @@
 //	////Date d = ("2024");
 //
 //
-//	//Date d20(2024);		//C++98µÄ()
-//	//Date d2{ 2024 };	//C++11µÄ()
+//	//Date d20(2024);		//C++98çš„()
+//	//Date d2{ 2024 };	//C++11çš„()
 //
-//	//Date d30(2024, 5, 6);	//C++98µÄ()
-//	//Date d3{ 2024,5,26 };	//C++11µÄ()
+//	//Date d30(2024, 5, 6);	//C++98çš„()
+//	//Date d3{ 2024,5,26 };	//C++11çš„()
 //
 //
 //	//Date* arr1 = new Date[3]{ d1, d2, d3 };
@@ -134,13 +134,13 @@
 ////};
 ////
 ////int main() {
-////    Point p = { 1, 2 }; // Ö»³õÊ¼»¯ÁË x ºÍ y£¬z »á±»Ä¬ÈÏ³õÊ¼»¯Îª 0
-////    std::cout << "Point: (" << p.x << ", " << p.y << ", " << p.z << ")" << std::endl; // Êä³ö£ºPoint: (1, 2, 0)
+////    Point p = { 1, 2 }; // åªåˆå§‹åŒ–äº† x å’Œ yï¼Œz ä¼šè¢«é»˜è®¤åˆå§‹åŒ–ä¸º 0
+////    std::cout << "Point: (" << p.x << ", " << p.y << ", " << p.z << ")" << std::endl; // è¾“å‡ºï¼šPoint: (1, 2, 0)
 ////    return 0;
 ////}
 
 //
-////¶Ô×Ô¶¨ÒåÀàĞÍ³õÊ¼»¯
+////å¯¹è‡ªå®šä¹‰ç±»å‹åˆå§‹åŒ–
 //#include <iostream>
 //using namespace std;
 //
@@ -187,7 +187,7 @@
 //    int age;
 //    int height;
 //
-//    // µ¥²ÎÊı¹¹Ôìº¯Êı
+//    // å•å‚æ•°æ„é€ å‡½æ•°
 //    Person(std::string n) : name(n), age(0) {
 //        std::cout << "Person(std::string n)" << std::endl;
 //    }
@@ -211,15 +211,15 @@
 //
 //int main() 
 //{
-//    Person a = { "Alice", 30}; // Ö±½Óµ÷ÓÃ Person(std::string, int) ¹¹Ôìº¯Êı
-//    Person b = { "fwqfq" };    // Ö±½Óµ÷ÓÃ Person(const char * s) ¹¹Ôìº¯Êı
-//    Person c = { 5 , 6 };      //£¨¶à²ÎÊı£©ÒşÊ½ÀàĞÍ×ª»»£º int -> double£¬È»ºóµ÷ÓÃ Person(double n, double a) ¹¹ÔìÁÙÊ±¶ÔÏó£¬×îºó½«¸Ã¶ÔÏó¿½±´¸øc
+//    Person a = { "Alice", 30}; // ç›´æ¥è°ƒç”¨ Person(std::string, int) æ„é€ å‡½æ•°
+//    Person b = { "fwqfq" };    // ç›´æ¥è°ƒç”¨ Person(const char * s) æ„é€ å‡½æ•°
+//    Person c = { 5 , 6 };      //ï¼ˆå¤šå‚æ•°ï¼‰éšå¼ç±»å‹è½¬æ¢ï¼š int -> doubleï¼Œç„¶åè°ƒç”¨ Person(double n, double a) æ„é€ ä¸´æ—¶å¯¹è±¡ï¼Œæœ€åå°†è¯¥å¯¹è±¡æ‹·è´ç»™c
 //   
-//    Person d = (52.5);         //£¨µ¥²ÎÊı£©ÒşÊ½ÀàĞÍ×ª»»£ºdouble -> int£¬È»ºóµ÷ÓÃ  Person(int a) ¹¹ÔìÁÙÊ±¶ÔÏó£¬×îºó½«¸Ã¶ÔÏó¿½±´¸ød
+//    Person d = (52.5);         //ï¼ˆå•å‚æ•°ï¼‰éšå¼ç±»å‹è½¬æ¢ï¼šdouble -> intï¼Œç„¶åè°ƒç”¨  Person(int a) æ„é€ ä¸´æ—¶å¯¹è±¡ï¼Œæœ€åå°†è¯¥å¯¹è±¡æ‹·è´ç»™d
 //    
-//    Person e = "fewfew";       // µ÷ÓÃ Person(const char* s)¹¹ÔìÁÙÊ±¶ÔÏó£¬×îºó½«¸Ã¶ÔÏó¿½±´¸øe
+//    Person e = "fewfew";       // è°ƒç”¨ Person(const char* s)æ„é€ ä¸´æ—¶å¯¹è±¡ï¼Œæœ€åå°†è¯¥å¯¹è±¡æ‹·è´ç»™e
 //
-//    Person f = 40;             // µ÷ÓÃ Person(int a) ¹¹ÔìÁÙÊ±¶ÔÏó£¬×îºó½«¸Ã¶ÔÏó¿½±´¸øf
+//    Person f = 40;             // è°ƒç”¨ Person(int a) æ„é€ ä¸´æ—¶å¯¹è±¡ï¼Œæœ€åå°†è¯¥å¯¹è±¡æ‹·è´ç»™f
 //    return 0;
 //}
 
@@ -257,17 +257,17 @@
 //int func1()
 //{
 //	static int x = 0;
-//	return x;//xÊÇÓÒÖµ
+//	return x;//xæ˜¯å³å€¼
 //}
 //
 //
 //int main()
 //{
-//	//×óÖµÒıÓÃ²»ÄÜ¸øÓÒÖµÈ¡±ğÃû£¬µ«ÊÇconst×óÖµ¿ÉÒÔ
+//	//å·¦å€¼å¼•ç”¨ä¸èƒ½ç»™å³å€¼å–åˆ«åï¼Œä½†æ˜¯constå·¦å€¼å¯ä»¥
 //	int& r1 = func1();
 //	const int& r2 = func1();
 //
-//	//ÓÒÖµÒıÓÃ²»ÄÜ¸ø×óÖµÈ¡±ğÃû£¬µ«ÊÇ¿ÉÒÔ¸ømoveºóµÄ×óÖµÆğ±ğÃû
+//	//å³å€¼å¼•ç”¨ä¸èƒ½ç»™å·¦å€¼å–åˆ«åï¼Œä½†æ˜¯å¯ä»¥ç»™moveåçš„å·¦å€¼èµ·åˆ«å
 //	int x = 1;
 //	int&& rr1 = x;
 //	int&& rr2 = move(x);
@@ -276,17 +276,147 @@
 //	return 0;
 //}
 
-#include <iostream>
+//#include <iostream>
+//
+//int& getLocalVar() 
+//{
+//    int localVar = 42;
+//    return localVar; // è¿”å›å±€éƒ¨å˜é‡çš„å¼•ç”¨ï¼ˆé”™è¯¯ï¼‰
+//}
+//
+//int main() {
+//
+//    int& ref = getLocalVar();
+//    std::cout << ref << std::endl; // æœªå®šä¹‰è¡Œä¸º
+//    return 0;
+////}
+//#include <iostream>
+//#include <cstring>
+//
+//class Array {
+//private:
+//    int* data;
+//    size_t size;
+//
+//public:
+//    // æ„é€ å‡½æ•°
+//    Array(size_t sz) : size(sz) {
+//        data = new int[size];
+//        std::cout << "Array created.\n";
+//    }
+//
+//    // æ·±æ‹·è´æ„é€ å‡½æ•°
+//    Array(const Array& other) : size(other.size) {
+//        data = new int[size];
+//        std::memcpy(data, other.data, size * sizeof(int));
+//        std::cout << "Deep copy constructor.\n";
+//    }
+//
+//    // æµ…æ‹·è´æ„é€ å‡½æ•°ï¼ˆè¿™æ˜¯ä¸€ç§é”™è¯¯çš„åšæ³•ï¼‰
+//    Array shallow_copy(const Array& other)
+//    {
+//        this->size = other.size;
+//        this->data = other.data; // ä»…å¤åˆ¶æŒ‡é’ˆï¼Œä¸¤ä¸ªå¯¹è±¡å…±äº«åŒä¸€å—å†…å­˜
+//        std::cout << "Shallow copy.\n";
+//        return *this;
+//    }
+//
+//    // ç§»åŠ¨æ„é€ å‡½æ•°
+//    Array(Array&& other) noexcept : size(other.size), data(other.data) {
+//        other.data = nullptr; // é‡Šæ”¾æ‰€æœ‰æƒ
+//        other.size = 0;
+//        std::cout << "Move constructor.\n";
+//    }
+//
+//    // ææ„å‡½æ•°
+//    ~Array() {
+//        delete[] data;
+//        std::cout << "Array destroyed.\n";
+//    }
+//
+//    void print() const {
+//        for (size_t i = 0; i < size; ++i) {
+//            std::cout << data[i] << " ";
+//        }
+//        std::cout << "\n";
+//    }
+//
+//    // å¡«å……æ•°ç»„æ•°æ®
+//    void fill(int value) {
+//        for (size_t i = 0; i < size; ++i) {
+//            data[i] = value;
+//        }
+//    }
+//};
+//
+//int main() {
+//    Array arr1(5);
+//    arr1.fill(10);
+//    std::cout << "Original Array: ";
+//    arr1.print();
+//
+//    // æ·±æ‹·è´
+//    Array arr2 = arr1; // ä½¿ç”¨æ·±æ‹·è´æ„é€ å‡½æ•°
+//    std::cout << "Deep Copied Array: ";
+//    arr2.print();
+//
+//    // ä¿®æ”¹åŸæ•°ç»„ï¼Œä¸å½±å“æ·±æ‹·è´çš„æ•°ç»„
+//    arr1.fill(20);
+//    std::cout << "Modified Original Array: ";
+//    arr1.print();
+//    std::cout << "Deep Copied Array after modifying original: ";
+//    arr2.print();
+//
+//    // æµ…æ‹·è´
+//    Array arr3(5);
+//    arr3 = arr3.shallow_copy(arr1); // ä½¿ç”¨æµ…æ‹·è´æ–¹æ³•
+//    std::cout << "Shallow Copied Array: ";
+//    arr3.print();
+//
+//    // ä¿®æ”¹åŸæ•°ç»„ï¼Œæµ…æ‹·è´çš„æ•°ç»„ä¹Ÿè¢«å½±å“
+//    arr1.fill(30);
+//    std::cout << "Modified Original Array: ";
+//    arr1.print();
+//    std::cout << "Shallow Copied Array after modifying original: ";
+//    arr3.print();
+//
+//    return 0;
+//}
 
-int& getLocalVar() 
-{
-    int localVar = 42;
-    return localVar; // ·µ»Ø¾Ö²¿±äÁ¿µÄÒıÓÃ£¨´íÎó£©
-}
 
-int main() {
 
-    int& ref = getLocalVar();
-    std::cout << ref << std::endl; // Î´¶¨ÒåĞĞÎª
-    return 0;
-}
+//void modify(int&& r) {
+//    r = 20; // è¿™é‡Œ r æ˜¯ä¸€ä¸ªå·¦å€¼
+//    std::cout << "r: " << r << std::endl;
+//}
+//
+//int main() {
+//    modify(10); // 10 æ˜¯å³å€¼ï¼Œä½†åœ¨å‡½æ•°ä¸­è¢«ç»‘å®šåˆ°å³å€¼å¼•ç”¨ r
+//    return 0;
+//}
+
+//#include <iostream>
+//using namespace std;
+//void Fun(int& x) { cout << "å·¦å€¼å¼•ç”¨" << endl; }
+//void Fun(const int& x) { cout << "const å·¦å€¼å¼•ç”¨" << endl; }
+//void Fun(int&& x) { cout << "å³å€¼å¼•ç”¨" << endl; }
+//void Fun(const int&& x) { cout << "const å³å€¼å¼•ç”¨" << endl; }
+//
+//template<typename T>
+//void PerfectForward(T&& t)
+//{
+//    Fun(t);
+//}
+//
+//int main()
+//{
+//    PerfectForward(10);//å³å€¼ï¼Œé¢„è®¡è°ƒç”¨void Fun(int&& x) { cout << "å³å€¼å¼•ç”¨" << endl; }
+//    int a;
+//    PerfectForward(a); //å·¦å€¼
+//    PerfectForward(move(a)); // å³å€¼ï¼Œé¢„è®¡è°ƒç”¨void Fun(int&& x) { cout << "å³å€¼å¼•ç”¨" << endl; }
+//    const int b = 8;
+//    PerfectForward(b);//å·¦å€¼
+//    PerfectForward(move(b)); // const å³å€¼ï¼Œé¢„è®¡è°ƒç”¨void Fun(const int&& x) { cout << "const å³å€¼å¼•ç”¨" << endl; }
+//    return 0;
+//}
+
