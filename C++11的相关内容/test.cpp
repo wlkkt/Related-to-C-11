@@ -420,208 +420,208 @@
 //    return 0;
 //}
 //
-
-#define _CRT_SECURE_NO_WARNINGS 1
-#include<iostream>
-using namespace std;
-
-#include<vector>
-#include<list>
-#include<map>
-#include<set>
-#include<string>
-
-#include<assert.h>
-
-namespace bit
-{
-	class string
-	{
-	public:
-		typedef char* iterator;
-		iterator begin()
-		{
-			return _str;
-		}
-
-		iterator end()
-		{
-			return _str + _size;
-		}
-
-		string(const char* str = "")
-			:_size(strlen(str))
-			, _capacity(_size)
-		{
-			cout << "string(char* str)" << endl;
-
-			_str = new char[_capacity + 1];
-			strcpy(_str, str);
-		}
-
-		// s1.swap(s2)
-		void swap(string& s)
-		{
-			::swap(_str, s._str);
-			::swap(_size, s._size);
-			::swap(_capacity, s._capacity);
-		}
-
-		// 拷贝构造 -- 左值
-		string(const string& s)
-			:_str(nullptr)
-		{
-			cout << "string(const string& s) -- 深拷贝" << endl;
-
-			_str = new char[s._capacity + 1];
-			strcpy(_str, s._str);
-			_size = s._size;
-			_capacity = s._capacity;
-		}
-
-		// 移动构造 -- 右值(将亡值)
-		string(string&& s)
-		{
-			cout << "string(string&& s) -- 移动拷贝" << endl;
-			swap(s);
-		}
-
-		// 拷贝赋值
-		// s2 = tmp
-		string& operator=(const string& s)
-		{
-			cout << "string& operator=(const string& s) -- 深拷贝" << endl;
-			string tmp(s);
-			swap(tmp);
-
-			return *this;
-		}
-
-		// 移动赋值
-		string& operator=(string&& s)
-		{
-			cout << "string& operator=(string&& s) -- 移动拷贝" << endl;
-			swap(s);
-
-			return *this;
-		}
-
-		~string()
-		{
-			delete[] _str;
-			_str = nullptr;
-		}
-
-		char& operator[](size_t pos)
-		{
-			assert(pos < _size);
-			return _str[pos];
-		}
-
-		void reserve(size_t n)
-		{
-			if (n > _capacity)
-			{
-				char* tmp = new char[n + 1];
-				strcpy(tmp, _str);
-				delete[] _str;
-				_str = tmp;
-
-				_capacity = n;
-			}
-		}
-
-		void push_back(char ch)
-		{
-			if (_size >= _capacity)
-			{
-				size_t newcapacity = _capacity == 0 ? 4 : _capacity * 2;
-				reserve(newcapacity);
-			}
-
-			_str[_size] = ch;
-			++_size;
-			_str[_size] = '\0';
-		}
-
-		//string operator+=(char ch)
-		string& operator+=(char ch)
-		{
-			push_back(ch);
-			return *this;
-		}
-
-		const char* c_str() const
-		{
-			return _str;
-		}
-	private:
-		char* _str = nullptr;
-		size_t _size = 0;
-		size_t _capacity = 0; // 不包含最后做标识的\0
-	};
-
-	bit::string to_string(int value)
-	{
-		bool flag = true;
-		if (value < 0)
-		{
-			flag = false;
-			value = 0 - value;
-		}
-
-		bit::string str;
-		while (value > 0)
-		{
-			int x = value % 10;
-			value /= 10;
-			str += ('0' + x);
-		}
-		if (flag == false)
-		{
-			str += '-';
-		}
-
-		std::reverse(str.begin(), str.end());
-		return str;
-	}
-}
-int main()
-{
-	std::list<bit::string> lt1;
-
-	bit::string s1("xxxx");
-	lt1.push_back(s1);
-	lt1.push_back(move(s1));
-	cout << "=============================================" << endl;
-
-	bit::string s2("xxxx");
-	lt1.emplace_back(s2);
-	lt1.emplace_back(move(s2));
-	cout << "=============================================" << endl;
-
-	lt1.push_back("xxxx");
-	lt1.emplace_back("xxxx");
-	cout << "=============================================" << endl;
-
-	std::list<pair<bit::string, bit::string>> lt2;
-	pair<bit::string, bit::string> kv1("xxxx", "yyyy");
-	lt2.push_back(kv1);
-	lt2.push_back(move(kv1));
-	cout << "=============================================" << endl;
-
-	pair<bit::string, bit::string> kv2("xxxx", "yyyy");
-	lt2.emplace_back(kv2);
-	lt2.emplace_back(move(kv2));
-	cout << "=============================================" << endl;
-
-	lt2.emplace_back("xxxx", "yyyy");
-	cout << "=============================================" << endl;
-
-
-	return 0;
-}
-
+//
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include<iostream>
+//using namespace std;
+//
+//#include<vector>
+//#include<list>
+//#include<map>
+//#include<set>
+//#include<string>
+//
+//#include<assert.h>
+//
+//namespace bit
+//{
+//	class string
+//	{
+//	public:
+//		typedef char* iterator;
+//		iterator begin()
+//		{
+//			return _str;
+//		}
+//
+//		iterator end()
+//		{
+//			return _str + _size;
+//		}
+//
+//		string(const char* str = "")
+//			:_size(strlen(str))
+//			, _capacity(_size)
+//		{
+//			cout << "string(char* str)" << endl;
+//
+//			_str = new char[_capacity + 1];
+//			strcpy(_str, str);
+//		}
+//
+//		// s1.swap(s2)
+//		void swap(string& s)
+//		{
+//			::swap(_str, s._str);
+//			::swap(_size, s._size);
+//			::swap(_capacity, s._capacity);
+//		}
+//
+//		// 拷贝构造 -- 左值
+//		string(const string& s)
+//			:_str(nullptr)
+//		{
+//			cout << "string(const string& s) -- 深拷贝" << endl;
+//
+//			_str = new char[s._capacity + 1];
+//			strcpy(_str, s._str);
+//			_size = s._size;
+//			_capacity = s._capacity;
+//		}
+//
+//		// 移动构造 -- 右值(将亡值)
+//		string(string&& s)
+//		{
+//			cout << "string(string&& s) -- 移动拷贝" << endl;
+//			swap(s);
+//		}
+//
+//		// 拷贝赋值
+//		// s2 = tmp
+//		string& operator=(const string& s)
+//		{
+//			cout << "string& operator=(const string& s) -- 深拷贝" << endl;
+//			string tmp(s);
+//			swap(tmp);
+//
+//			return *this;
+//		}
+//
+//		// 移动赋值
+//		string& operator=(string&& s)
+//		{
+//			cout << "string& operator=(string&& s) -- 移动拷贝" << endl;
+//			swap(s);
+//
+//			return *this;
+//		}
+//
+//		~string()
+//		{
+//			delete[] _str;
+//			_str = nullptr;
+//		}
+//
+//		char& operator[](size_t pos)
+//		{
+//			assert(pos < _size);
+//			return _str[pos];
+//		}
+//
+//		void reserve(size_t n)
+//		{
+//			if (n > _capacity)
+//			{
+//				char* tmp = new char[n + 1];
+//				strcpy(tmp, _str);
+//				delete[] _str;
+//				_str = tmp;
+//
+//				_capacity = n;
+//			}
+//		}
+//
+//		void push_back(char ch)
+//		{
+//			if (_size >= _capacity)
+//			{
+//				size_t newcapacity = _capacity == 0 ? 4 : _capacity * 2;
+//				reserve(newcapacity);
+//			}
+//
+//			_str[_size] = ch;
+//			++_size;
+//			_str[_size] = '\0';
+//		}
+//
+//		//string operator+=(char ch)
+//		string& operator+=(char ch)
+//		{
+//			push_back(ch);
+//			return *this;
+//		}
+//
+//		const char* c_str() const
+//		{
+//			return _str;
+//		}
+//	private:
+//		char* _str = nullptr;
+//		size_t _size = 0;
+//		size_t _capacity = 0; // 不包含最后做标识的\0
+//	};
+//
+//	bit::string to_string(int value)
+//	{
+//		bool flag = true;
+//		if (value < 0)
+//		{
+//			flag = false;
+//			value = 0 - value;
+//		}
+//
+//		bit::string str;
+//		while (value > 0)
+//		{
+//			int x = value % 10;
+//			value /= 10;
+//			str += ('0' + x);
+//		}
+//		if (flag == false)
+//		{
+//			str += '-';
+//		}
+//
+//		std::reverse(str.begin(), str.end());
+//		return str;
+//	}
+//}
+////int main()
+////{
+////	std::list<bit::string> lt1;
+////
+////	//bit::string s1("xxxx");
+////	//lt1.push_back(s1);
+////	//lt1.push_back(move(s1));
+////	//cout << "=============================================" << endl;
+////
+////	//bit::string s2("xxxx");
+////	//lt1.emplace_back(s2);
+////	//lt1.emplace_back(move(s2));
+////	//cout << "=============================================" << endl;
+////
+////	lt1.push_back("xxxx");
+////	lt1.emplace_back("xxxx");
+////	cout << "=============================================" << endl;
+////
+////	std::list<pair<bit::string, bit::string>> lt2;
+////	pair<bit::string, bit::string> kv1("xxxx", "yyyy");
+////	lt2.push_back(kv1);
+////	lt2.push_back(move(kv1));
+////	cout << "=============================================" << endl;
+////
+////	pair<bit::string, bit::string> kv2("xxxx", "yyyy");
+////	lt2.emplace_back(kv2);
+////	lt2.emplace_back(move(kv2));
+////	cout << "=============================================" << endl;
+////
+////	lt2.emplace_back("xxxx", "yyyy");
+////	cout << "=============================================" << endl;
+////
+////
+////	return 0;
+////}
+//
 //class Date
 //{
 //public:
@@ -645,7 +645,7 @@ int main()
 //	int _month = 1;
 //	int _day = 1;
 //};
-
+//
 //int main()
 //{
 //	std::list<Date> lt1;
@@ -657,15 +657,208 @@ int main()
 //	// 推荐
 //	lt1.emplace_back(2024, 3, 30);
 //
-//	cout << endl;
-//	Date d1(2023, 1, 1);
-//	lt1.push_back(d1);
-//	lt1.emplace_back(d1);
+//	//cout << endl;
+//	//Date d1(2023, 1, 1);
+//	//lt1.push_back(d1);
+//	//lt1.emplace_back(d1);
 //
-//	cout << endl;
-//	lt1.push_back(Date(2023, 1, 1));
-//	lt1.emplace_back(Date(2023, 1, 1));
+//	//cout << endl;
+//	//lt1.push_back(Date(2023, 1, 1));
+//	//lt1.emplace_back(Date(2023, 1, 1));
 //
 //
 //	return 0;
 //}
+
+
+
+//int RecallFunc(int* start, int* end, bool (*pf)(int)) {
+//    int count = 0;
+//    for (int* i = start; i != end + 1; i++) {
+//        count = pf(*i) ? count + 1 : count;
+//    }
+//    return count;
+//}
+//
+//bool IsGreaterThanTen(int num) {
+//    return num > 10 ? true : false;
+//}
+
+
+
+
+
+//#include <iostream>
+//using namespace std;
+//
+//void (*PF)();
+//
+//int main() 
+//{
+//    auto f1 = [] {cout << "hello world" << endl; };
+//    //auto f2 = [] {cout << "hello world" << endl; };
+//    
+// 
+//
+//    
+//    auto f2 = f1; // 正确，因为 `f2` 使用 `auto` 推导为 `f1` 的类型
+//
+//    f1();
+//    f2();
+//    //// 允许使用一个lambda表达式拷贝构造一个新的副本
+//    //auto f3(f2);
+//    //f3();
+//
+//    //// 可以将lambda表达式赋值给相同类型的函数指针
+//    //PF = f2;
+//    //PF();
+//
+//    return 0;
+//}
+
+
+
+//#include <iostream>
+//using namespace std;
+//
+//class Rate
+//{
+//public:
+//	Rate(double rate) : _rate(rate)
+//	{}
+//	double operator()(double money, int year)
+//	{
+//		return money * _rate * year;
+//	}
+//private:
+//	double _rate;
+//};
+//
+//
+//int main()
+//{
+//	// 函数对象
+//	double rate = 0.49;
+//	Rate r1(rate);
+//	r1(10000, 2);
+//
+//	// lambda
+//	auto r2 = [=](double monty, int year)->double {return monty * rate * year;};
+//	r2(10000, 2);
+//	return 0;
+//}
+
+
+
+//
+//#include <iostream>
+//using namespace std;
+//
+//template<class F, class T>
+//T useF(F f, T x)//函数或对象名,传入的参数
+//{
+//	static int count = 0;
+//	cout << "count:" << ++count << endl;
+//	cout << "count:" << &count << endl;
+//
+//	return f(x);
+//}
+//
+//double f(double i)
+//{
+//	return i / 2;
+//}
+//
+//struct Functor
+//{
+//	double operator()(double d)
+//	{
+//		return d / 3;
+//	}
+//};
+//
+////
+////int main()
+////{
+////	// 函数名
+////	cout << useF(f, 11.11) << endl;
+////
+////	// 函数对象
+////	cout << useF(Functor(), 11.11) << endl;
+////
+////	// lamber表达式
+////	cout << useF([](double d)->double { return d / 4; }, 11.11) << endl;
+////
+////	return 0;
+////}
+//
+//#include<functional>
+//
+//int main()
+//{
+//	// 函数指针
+//	function<double(double)> fc1 = f;
+//	fc1(11.11);
+//	cout << useF(fc1, 11.11) << endl;
+//
+//	// 函数对象
+//	function<double(double)> fc2 = Functor();
+//	fc2(11.11);
+//	cout << useF(fc2, 11.11) << endl;
+//
+//	// lambda表达式
+//	function<double(double)> fc3 = [](double d)->double { return d / 4; };
+//	fc3(11.11);
+//	cout << useF(fc3, 11.11) << endl;
+//
+//	return 0;
+//}
+
+
+#include <iostream>
+#include<functional>
+using namespace std;
+
+class Plus
+{
+public:
+	//静态成员函数
+	static int plusi(int a, int b)
+	{
+		return a + b;
+	}
+
+	//非静态成员函数
+	double plusd(double a, double b)
+	{
+		return a + b;
+	}
+};
+
+//普通函数
+int f(int a, int b)
+{
+	return a + b;
+}
+
+int main()
+{
+	// 普通函数
+	function<int(int, int)> fc1 = f;
+	cout << fc1(1, 1) << endl;
+
+	// 静态成员函数
+	function<int(int, int)> fc2 = &Plus::plusi;
+	cout << fc2(1, 1) << endl;
+
+	// 非静态成员函数
+	// 非静态成员函数需要对象的指针或者对象去进行调用
+	/*Plus plus;
+	function<double(Plus*, double, double)> fc3 = &Plus::plusd;
+	cout << fc3(&plus, 1, 1) << endl;*/
+
+	function<double(Plus, double, double)> fc3 = &Plus::plusd;
+	cout << fc3(Plus(), 1, 1) << endl;
+
+	return 0;
+}
