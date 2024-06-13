@@ -815,50 +815,50 @@
 //}
 
 
-#include <iostream>
-#include<functional>
-using namespace std;
-
-class Plus
-{
-public:
-	//静态成员函数
-	static int plusi(int a, int b)
-	{
-		return a + b;
-	}
-
-	//非静态成员函数
-	double plusd(double a, double b)
-	{
-		return a + b;
-	}
-};
-
-//普通函数
-int f(int a, int b)
-{
-	return a + b;
-}
-
-int main()
-{
-	// 普通函数
-	function<int(int, int)> fc1 = f;
-	cout << fc1(1, 1) << endl;
-
-	// 静态成员函数
-	function<int(int, int)> fc2 = &Plus::plusi;
-	cout << fc2(1, 1) << endl;
-
-	// 非静态成员函数
-	// 非静态成员函数需要对象的指针或者对象去进行调用
-	/*Plus plus;
-	function<double(Plus*, double, double)> fc3 = &Plus::plusd;
-	cout << fc3(&plus, 1, 1) << endl;*/
-
-	function<double(Plus, double, double)> fc3 = &Plus::plusd;
-	cout << fc3(Plus(), 1, 1) << endl;
-
-	return 0;
-}
+//#include <iostream>
+//#include<functional>
+//using namespace std;
+//
+//class Plus
+//{
+//public:
+//	//静态成员函数
+//	static int plusi(int a, int b)
+//	{
+//		return a + b;
+//	}
+//
+//	//非静态成员函数
+//	double plusd(double a, double b)
+//	{
+//		return a + b;
+//	}
+//};
+//
+////普通函数
+//int f(int a, int b)
+//{
+//	return a + b;
+//}
+//
+//int main()
+//{
+//	// 普通函数
+//	function<int(int, int)> fc1 = f;
+//	cout << fc1(1, 1) << endl;
+//
+//	// 静态成员函数
+//	function<int(int, int)> fc2 = &Plus::plusi;
+//	cout << fc2(1, 1) << endl;
+//
+//	// 非静态成员函数
+//	// 非静态成员函数需要对象的指针或者对象去进行调用
+//	/*Plus plus;
+//	function<double(Plus*, double, double)> fc3 = &Plus::plusd;
+//	cout << fc3(&plus, 1, 1) << endl;*/
+//
+//	function<double(Plus, double, double)> fc3 = &Plus::plusd;
+//	cout << fc3(Plus(), 1, 1) << endl;
+//
+//	return 0;
+//}
